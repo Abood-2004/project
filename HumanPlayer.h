@@ -4,7 +4,6 @@
 #include "Player.h"
 #include <iostream>
 #include <limits>
-
 class HumanPlayer : public Player {
 public:
     HumanPlayer(const string& playerName) : Player(playerName) {}
