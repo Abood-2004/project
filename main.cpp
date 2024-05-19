@@ -7,6 +7,7 @@ int main() {
     string playerName;
     cout << "Enter your name: ";
     cin >> playerName;
+    
     GameManager game(playerName);
     game.playGame();
 
