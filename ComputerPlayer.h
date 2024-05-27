@@ -1,7 +1,6 @@
 #ifndef COMPUTERPLAYER_H
 #define COMPUTERPLAYER_H
 
-// hello in github
 #include "Player.h"
 #include <cstdlib>
 

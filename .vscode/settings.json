@@ -1,10 +1,14 @@
 {
+    "cmake.sourceDirectory": "C:/Users/ASUS/Desktop/project",
     "files.associations": {
+        "fstream": "cpp",
+        "iosfwd": "cpp",
+        "limits": "cpp",
+        "exception": "cpp",
+        "new": "cpp",
+        "typeinfo": "cpp",
         "iostream": "cpp",
-        "string": "cpp",
-        "ostream": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "disabled",
-    "git.decorations.enabled": true,
-    "git.enabled": true
+        "ostream": "cpp",
+        "*.tcc": "cpp"
+    }
 }

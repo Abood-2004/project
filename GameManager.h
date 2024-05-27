@@ -3,10 +3,6 @@
 
 #include "HumanPlayer.h"
 #include "ComputerPlayer.h"
-#include <iostream>
-#include <ctime>
-
-using namespace std;
 
 class GameManager {
 private:
@@ -19,11 +15,35 @@ public:
         srand(time(0)); // Seed for random number generation
     }
 
+     
     void playRound() {
         int humanMove = human.makeMove();
         int computerMove = computer.makeMove();
-
-        cout << "Computer chose: " << computerMove << endl;
+        string emoji ;
+       
+       while (true)
+       {
+        
+        cout << "Computer chose: " << computerMove ;
+        if (computerMove==1)
+        {
+            emoji = "🪨";
+        break;
+        }
+        else if (computerMove==2)
+        {
+        
+            emoji = "📄";
+        break; 
+        }
+         else if (computerMove==3)
+        {
+            emoji = "✂️";
+        break;
+        }
+       }
+            cout << emoji << endl ;
+       
 
         if ((humanMove == 1 && computerMove == 3) ||
             (humanMove == 2 && computerMove == 1) ||
@@ -51,13 +71,27 @@ public:
         cout << "\nGame over!" << endl;
         if (human.getScore() > computer.getScore()) {
             cout << human.getName() << " wins the game with a score of " << human.getScore() << "!" << endl;
-            cout << "Computer loses the game with a score of " << computer.getScore() << "." << endl;
+            human.incrementGamesWon();
         } else if (human.getScore() < computer.getScore()) {
             cout << "Computer wins the game with a score of " << computer.getScore() << "!" << endl;
-            cout << human.getName() << " loses the game with a score of " << human.getScore() << "." << endl;
+            computer.incrementGamesWon();
         } else {
-            cout << "It's a tie game!" << endl;
-            cout << human.getName() << " and Computer both have a score of " << human.getScore() << "." << endl;
+            cout << "The game is a tie!" << endl;
+        }
+
+        human.savePlayerData();
+        computer.savePlayerData();
+    }
+
+    static void checkScoreByName(const string& playerName) {
+        ifstream file(playerName + ".dat");
+        if (file.is_open()) {
+            int gamesWon;
+            file >> gamesWon;
+            file.close();
+            cout << playerName << " has won " << gamesWon << " games." << endl;
+        } else {
+            cout << "No data found for player " << playerName << "." << endl;
         }
     }
 };
